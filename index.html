@@ -204,7 +204,7 @@
             them to capture the physical causality underlying how actions influence the environment. 
             However, most existing WAMs require explicitly imagining future states at inference time, 
             incurring substantial computational overhead and latency that make them unsuitable for 
-            real-time robotic control. In this paper, we propose \textbf{W2A}, a two-stage distillation 
+            real-time robotic control. In this paper, we propose <strong>W2A</strong>, a two-stage distillation 
             framework for real-time robotic manipulation that distills intermediate denoising 
             representations from a video diffusion model into a lightweight action policy during 
             training, while entirely discarding the video model at inference time. As a result, the 
@@ -399,7 +399,7 @@
         <p style="margin-bottom: 2rem;">
             A key goal of W2A is to retain the benefit of video-based world priors without incurring the deployment overhead of an explicit video model at test time. 
             To verify this, we compare inference latency across representative baselines on the same platform.
-            W2A achieves the lowest inference latency among all compared methods, requiring only 68\,ms per action prediction. 
+            W2A achieves the lowest inference latency among all compared methods, requiring only 68ms per action prediction. 
             The efficiency gain comes from the fact that W2A discards the video DiT entirely at inference time and deploys only a lightweight action policy. 
             Moreover, if a lightweight text encoder is used, W2A requires only about 6 GB of GPU memory at deployment, which is a substantial advantage in compute-constrained settings.
         </p>

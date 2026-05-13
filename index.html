@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Distilling World Priors into Action Policies for Real-Time Robot Control.">
+        content="Distilling World Priors into Action Model for Real-Time Robot Control.">
   <meta name="keywords" content="Robotic Manipulation, World Action Models, Distillation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>W2A: Distilling World Priors into Action Policies for Real-Time Robot Control</title>
+  <title>W2A: Distilling World Priors into Action Model for Real-Time Robot Control</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,7 +88,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">W2A: Distilling World Priors into Action Policies for Real-Time Robot Control</h1>
+          <h1 class="title is-1 publication-title">W2A: Distilling World Priors into Action Model for Real-Time Robot Control</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Anonymous Authors
@@ -149,12 +149,12 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="#"
+                <a href="https://github.com/misaka0502/W2A_code"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming soon)</span>
+                  <span>Code</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -199,21 +199,19 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            World Action Models (WAMs) have recently shown great promise in robotic control, benefiting 
-            from the future imagination capability of large-scale pretrained video models, which enables 
-            them to capture the physical causality underlying how actions influence the environment. 
+            World Action Models (WAMs) have recently shown great promise in robotic control, 
+            benefiting from the future imagination capability of large-scale pretrained video models. 
+            This enables them to capture the physical causality underlying how actions influence the environment. 
             However, most existing WAMs require explicitly imagining future states at inference time, 
-            incurring substantial computational overhead and latency that make them unsuitable for 
-            real-time robotic control. In this paper, we propose <strong>W2A</strong>, a two-stage distillation 
-            framework for real-time robotic manipulation that distills intermediate denoising 
-            representations from a video diffusion model into a lightweight action policy during 
-            training, while entirely discarding the video model at inference time. As a result, the 
-            policy retains physically grounded world priors while achieving high real-time efficiency. 
-            We observe that although video model representations are high-dimensional, only a small 
-            subset of task-relevant features is essential for action generation, enabling effective 
-            transfer into lightweight policies. Extensive experiments in both simulation and real-world 
-            settings demonstrate competitive success rates while significantly improving inference 
-            efficiency.
+            incurring substantial computational overhead and latency that make them unsuitable for real-time robotic control. 
+            In this paper, we propose \textbf{W2A}, a two-stage distillation framework for real-time robotic manipulation 
+            that distills intermediate denoising representations from a video diffusion model into a diffusion transformer policy 
+            during training, while entirely discarding the video model at inference time. 
+            As a result, the policy retains physically grounded world priors while achieving high real-time efficiency. 
+            We observe that although video model representations are high-dimensional, only a small subset of task-relevant 
+            features is essential for action generation, enabling effective transfer into an action model. 
+            Extensive experiments in both simulation and real-world settings demonstrate competitive success rates 
+            while significantly improving inference efficiency.
           </p>
           <!-- <p>
             Our approach augments neural radiance fields
@@ -309,14 +307,13 @@
            style="width: 100%; height: auto;">
           <p style="margin-bottom: 2rem;">
             W2A is a two-stage distillation framework that transfers world priors from a video DiT 
-            into a lightweight action DiT for real-time robotic manipulation. 
-            In Stage I, we adapt a pretrained language-conditioned video DiT to robotic video data 
-            and compress its latent representations into a lower-dimensional space, yielding a compact 
-            video representation of world priors. In Stage II, we train an action DiT from scratch 
-            and augment its standard action modeling objective with a latent distillation objective, 
-            which aligns the action latents with the compressed video latents through a lightweight 
-            Q-Former bottleneck. At inference time, the video DiT is entirely discarded, and only the 
-            action DiT is retained to generate actions conditioned on recent observations and task descriptions.
+            into an action DiT for real-time robotic manipulation. In Stage I, we adapt a pretrained 
+            language-conditioned video DiT to robotic video data and compress its latent representations
+            into a lower-dimensional space. In Stage II, we train an action DiT from scratch and augment 
+            its standard action modeling objective with a latent distillation objective, which aligns the 
+            action latents with the compressed video latents through a lightweight Q-Former bottleneck. 
+            At inference time, the video DiT is entirely discarded, and only the action DiT is retained 
+            to generate actions conditioned on recent observations and task descriptions.
           </p>
 
         <h2 class="title is-3">Results on Simulation and Real-World Tasks</h2>
@@ -409,7 +406,7 @@
           <img id="inference_efficiency"
               src="./static/images/ablation.png"
               alt="Ablation"
-              style="width: 40%; height: auto;">
+              style="width: 35%; height: auto;">
 
           <figcaption class="has-text-centered is-size-6 has-text-grey">
             Ablation.

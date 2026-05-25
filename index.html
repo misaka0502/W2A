@@ -207,6 +207,23 @@
             In this paper, we propose <strong>W2A</strong>, a two-stage distillation framework for real-time robotic manipulation 
             that distills intermediate denoising representations from a video diffusion model into a diffusion transformer policy 
             during training, while entirely discarding the video model at test time. 
+            We hypothesize that although video representations are high-dimensional, a compressed low-dimensional subspace is sufficient to provide effective supervision for action generation. 
+            This makes it possible to transfer such information effectively into an action model. 
+            Extensive experiments in both simulation and real-world settings demonstrate competitive success rates 
+            while significantly improving inference efficiency. 
+            On LIBERO, W2A achieves a <strong>95.9%</strong> average success rate. 
+            More importantly, compared with the representative WAM baseline, W2A achieves about <strong>21X</strong> faster inference. 
+            These results suggest that distilling video representations into an action model can achieve a favorable trade-off between performance and efficiency.
+          </p>
+          <!-- <p>
+            World Action Models (WAMs) have recently shown great promise in robotic control, 
+            benefiting from the future imagination capability of large-scale pretrained video models. 
+            This enables them to capture the physical causality underlying how actions influence the environment. 
+            However, most existing WAMs require explicitly imagining future states at test time, 
+            incurring substantial computational overhead and latency that make them unsuitable for real-time robotic control. 
+            In this paper, we propose <strong>W2A</strong>, a two-stage distillation framework for real-time robotic manipulation 
+            that distills intermediate denoising representations from a video diffusion model into a diffusion transformer policy 
+            during training, while entirely discarding the video model at test time. 
             We observe that although video representations are high-dimensional, only a small subset of features is essential for action generation. 
             This makes it possible to transfer such information effectively into an action model. 
             Extensive experiments in both simulation and real-world settings demonstrate competitive success rates 
@@ -216,7 +233,7 @@
             and reaches up to <strong>74.0%</strong> success rate on real-world tasks. 
             More importantly, compared with the representative WAM baseline, 
             W2A achieves about <strong>21X</strong> faster inference, making it a promising solution for real-time robotic control with WAMs.
-          </p>
+          </p> -->
           <!-- <p>
             Our approach augments neural radiance fields
             (NeRF) by optimizing an

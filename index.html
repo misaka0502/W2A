@@ -641,23 +641,23 @@
               <tbody>
                 <tr>
                   <td>Diffusion Policy</td>
-                  <td>28.0</td>
-                  <td>20.0</td>
-                  <td>4.0</td>
+                  <td>30.0</td>
+                  <td>7.5</td>
+                  <td>0.0</td>
                 </tr>
 
                 <tr>
                   <td>OpenVLA</td>
-                  <td>44.0</td>
-                  <td>38.0</td>
-                  <td>12.0</td>
+                  <td>50.0</td>
+                  <td>32.5</td>
+                  <td>20.0</td>
                 </tr>
 
                 <tr class="ours">
                   <td><strong>W2A</strong></td>
-                  <td><strong>74.0</strong></td>
-                  <td><strong>66.0</strong></td>
-                  <td><strong>42.0</strong></td>
+                  <td><strong>75.0</strong></td>
+                  <td><strong>65.0</strong></td>
+                  <td><strong>47.5</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -902,112 +902,171 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Additional Task Rollouts</h2>
-      <p class="subtitle has-text-centered">
-        We showcase a diverse set of W2A manipulation behaviors, including object placement into baskets,
-        cube stacking with different color combinations, and bowl placement on a plate.
-      </p>
-      <div style="max-height:480px;overflow-y:auto;overflow-x:hidden;padding:4px 8px 4px 4px;">
-      <div class="results-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:860px;margin:0 auto;align-items:start;">
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-carrot-in-basket-1" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_carrot_in_basket_1.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put carrot in basket</p>
+      <h2 class="title is-3">Real-world Task Rollouts</h2>
+      <style>
+        .task-rollouts {
+          display: flex;
+          flex-direction: column;
+          gap: 1.75rem;
+        }
+
+        .task-rollout-group {
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid #d6d9de;
+          border-radius: 16px;
+          padding: 1.25rem;
+        }
+
+        .task-rollout-title {
+          margin-bottom: 0.35rem;
+        }
+
+        .task-rollout-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 12px;
+          align-items: start;
+        }
+
+        .results-card {
+          overflow: hidden;
+          border: 1px solid #bbb;
+          border-radius: 10px;
+          background: #fff;
+          min-width: 0;
+        }
+
+        .results-card video {
+          display: block;
+          width: 100%;
+          height: auto;
+          margin: 0;
+          background: #000;
+        }
+
+        .results-card p {
+          margin: 0;
+          font-size: 0.82rem;
+        }
+
+        @media screen and (max-width: 1023px) {
+          .task-rollout-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+
+        @media screen and (max-width: 640px) {
+          .task-rollout-group {
+            padding: 1rem;
+          }
+
+          .task-rollout-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+      <div class="task-rollouts">
+        <div class="task-rollout-group">
+          <h3 class="title is-4 task-rollout-title">Pick-and-Place Tasks</h3>
+          <div class="task-rollout-grid">
+            <div class="results-card">
+              <video id="pnp-banana-basket" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/pnp/pick_up_the_banana_and_place_it_in_the_basket_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Pick up the banana and place it in the basket</p>
+            </div>
+            <div class="results-card">
+              <video id="pnp-blue-cup-plate" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/pnp/pick_up_the_blue_cup_and_place_it_on_the_plate_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Pick up the blue cup and place it on the plate</p>
+            </div>
+            <div class="results-card">
+              <video id="pnp-carrot-basket" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/pnp/pick_up_the_carrot_and_place_it_in_the_basket_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Pick up the carrot and place it in the basket</p>
+            </div>
+            <div class="results-card">
+              <video id="pnp-white-bowl-plate" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/pnp/pick_up_the_white_bowl_and_place_it_on_the_plate_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Pick up the white bowl and place it on the plate</p>
+            </div>
+          </div>
         </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-carrot-in-basket-2" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_carrot_in_basket_2.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put carrot in basket</p>
+
+        <div class="task-rollout-group">
+          <h3 class="title is-4 task-rollout-title">Cube Stacking Tasks</h3>
+          <div class="task-rollout-grid">
+            <div class="results-card">
+              <video id="cube-green-purple" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/cube/stack_the_green_cube_on_top_of_the_purple_cube_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Stack the green cube on top of the purple cube</p>
+            </div>
+            <div class="results-card">
+              <video id="cube-green-red" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/cube/stack_the_green_cube_on_top_of_the_red_cube_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Stack the green cube on top of the red cube</p>
+            </div>
+            <div class="results-card">
+              <video id="cube-purple-red" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/cube/stack_the_purple_cube_on_top_of_the_red_cube_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Stack the purple cube on top of the red cube</p>
+            </div>
+            <div class="results-card">
+              <video id="cube-red-blue" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/cube/stack_the_red_cube_on_top_of_the_blue_cube_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Stack the red cube on top of the blue cube</p>
+            </div>
+          </div>
         </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-carrot-in-basket-3" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_carrot_in_basket_3.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put carrot in basket</p>
+
+        <div class="task-rollout-group">
+          <h3 class="title is-4 task-rollout-title">Long-Horizon Tasks</h3>
+          <div class="task-rollout-grid">
+            <div class="results-card">
+              <video id="long-banana-drawer" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/long/open_the_top_drawer_and_put_the_banana_in_it_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Open the top drawer and put the banana in it</p>
+            </div>
+            <div class="results-card">
+              <video id="long-carrot-drawer" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/long/open_the_top_drawer_and_put_the_carrot_in_it_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Open the top drawer and put the carrot in it</p>
+            </div>
+            <div class="results-card">
+              <video id="long-bowl-drawer" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/long/open_the_top_drawer_and_put_the_white_bowl_in_it_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Open the top drawer and put the white bowl in it</p>
+            </div>
+            <div class="results-card">
+              <video id="long-carrot-banana-basket" controls muted loop playsinline preload="metadata">
+                <source src="./static/videos/long/pick_up_the_carrot_and_banana_and_place_them_in_the_basket_web.mp4"
+                        type="video/mp4">
+              </video>
+              <p class="has-text-centered is-size-6 p-3">Pick up the carrot and banana and place them in the basket</p>
+            </div>
+          </div>
         </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-carrot-in-basket-4" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_carrot_in_basket_4.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put carrot in basket</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-banana-in-basket-1" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_banana_in_basket_1.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put banana in basket</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-banana-in-basket-2" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_banana_in_basket_2.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put banana in basket</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-carrot-and-banana-in-basket-1" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_carrot_and_banana_in_basket_1.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put carrot and banana in basket</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-carrot-and-banana-in-basket-2" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_carrot_and_banana_in_basket_2.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put carrot and banana in basket</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-red-cube-on-blue-cube" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_red_cube_on_blue_cube.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put red cube on blue cube</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-blue-cube-on-red-cube" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_blue_cube_on_red_cube.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put blue cube on red cube</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-purple-cube-on-blue-cube" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_purple_cube_on_blue_cube.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put purple cube on blue cube</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-green-cube-on-purple-cube" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_green_cube_on_purple_cube.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put green cube on purple cube</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-white-bowl-on-plate" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_white_bowl_on_plate.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put white bowl on plate</p>
-        </div>
-        <div class="results-card" style="overflow:hidden;border:1px solid #bbb;border-radius:10px;background:#fff;min-width:0;">
-          <video id="put-red-bowl-on-plate" controls muted loop playsinline preload="metadata" width="100%" style="display:block;width:100%;height:auto;margin:0;background:#000;">
-            <source src="./static/videos/put_red_bowl_on_plate.mp4"
-                    type="video/mp4">
-          </video>
-          <p class="has-text-centered is-size-6 p-3" style="margin:0;font-size:0.82rem;">Put red bowl on plate</p>
-        </div>
-      </div>
       </div>
     </div>
   </div>
